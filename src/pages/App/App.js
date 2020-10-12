@@ -29,7 +29,7 @@ class App extends Component {
 
             <div className="App">
                 <header className="App-header">
-                    Auth Template
+                    The Sweat Aesthetic
                     <nav>
                         <NavBar
                             user={this.state.user}
