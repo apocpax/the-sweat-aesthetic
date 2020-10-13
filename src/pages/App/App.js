@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
+import * as productsAPI from '../../services/products-api'
+
+import userService from '../../utils/userService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import userService from '../../utils/userService';
+import NavBar from '../../components/NavBar/NavBar';
+import AddProductPage from '../AddProductPage/AddProductPage'
+
+
 
 
 class App extends Component {
+
     constructor() {
         super();
         this.state = {
+            products: [],
             user: userService.getUser()
         };
     }
+
+    async componentDidMount() {
+        const products = await productsAPI.getAll();
+        this.setState({ products: products })
+    }
+
+    // ----- User Interaction Functions ----- //
+
+    async handleAddProduct(newProductData) {
+        const newProduct = await productsAPI.create(newProductData);
+        this.setState(state => ({
+            products: [...state.products, newProduct]
+        }), () => this.props.history.push('/'))
+    }
+
+
+    // ----- Authentication Functions ----- //
 
     handleLogout = () => {
         userService.logout();
@@ -42,8 +66,8 @@ class App extends Component {
                     <Route exact path='/' render={() =>
                         <h1>Home Page</h1>
                     } />
-                    <Route exact path='/show' render={() =>
-                        <h1>Show Page</h1>
+                    <Route exact path='/addproduct' render={() =>
+                        <AddProductPage />
                     } />
                     <Route exact path='/signup' render={({ history }) =>
                         <SignupPage
