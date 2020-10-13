@@ -16,7 +16,6 @@ class AddProductForm extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target)
         const formData = {...this.state.formData, [e.target.name]: e.target.value}
         this.setState({
             formData: formData

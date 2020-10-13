@@ -8,7 +8,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AddProductPage from '../AddProductPage/AddProductPage'
-import ProductCard from '../../components/ProductCard/ProductCard'
+import AllProductsPage from '../AllProductsPage/AllProductsPage'
 
 
 
@@ -28,14 +28,23 @@ class App extends Component {
         this.setState({ products: products })
     }
 
-    // ----- User Interaction Functions ----- //
+    // ----- CRUD Functions ----- //
 
     handleAddProduct = async newProductData => {
-        const newProduct = productsAPI.create(newProductData);
+        const newProduct = await productsAPI.create(newProductData);
         this.setState(state => ({
             products: [...state.products, newProduct]
         }),
-            () => this.props.history.push('/')
+            () => this.props.history.push('/allproducts')
+        )
+    }
+
+    handleDeleteProduct = async id => {
+        await productsAPI.deleteOne(id);
+        this.setState(state => ({
+            products: state.products.filter(product => product._id !== id)
+        }),
+            () => this.props.history.push('/allproducts')
         )
     }
 
@@ -66,11 +75,11 @@ class App extends Component {
                 </header>
 
                 <Switch>
-                    <Route exact path='/' render={() =>
-                        this.state.products.map(product => (
-                            <ProductCard product={product}/>
-                        ))
-
+                    <Route exact path='/allproducts' render={() =>
+                        <AllProductsPage 
+                            products={this.state.products}
+                            handleDeleteProduct={this.handleDeleteProduct}
+                        /> 
                     } />
                     <Route exact path='/addproduct' render={() =>
                         <AddProductPage handleAddProduct={this.handleAddProduct}/>

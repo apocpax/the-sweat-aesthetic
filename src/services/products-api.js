@@ -12,3 +12,9 @@ export function create(product) {
         body: JSON.stringify(product)
     }).then(res => res.json());
 }
+
+export function deleteOne(id) {
+    return fetch(`${BASE_URL}/${id}`, {
+        method: 'DELETE'
+    }).then(res => res.json());
+}
