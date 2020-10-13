@@ -8,6 +8,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AddProductPage from '../AddProductPage/AddProductPage'
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 
 
@@ -29,11 +30,13 @@ class App extends Component {
 
     // ----- User Interaction Functions ----- //
 
-    async handleAddProduct(newProductData) {
-        const newProduct = await productsAPI.create(newProductData);
+    handleAddProduct = async newProductData => {
+        const newProduct = productsAPI.create(newProductData);
         this.setState(state => ({
             products: [...state.products, newProduct]
-        }), () => this.props.history.push('/'))
+        }),
+            () => this.props.history.push('/')
+        )
     }
 
 
@@ -64,10 +67,13 @@ class App extends Component {
 
                 <Switch>
                     <Route exact path='/' render={() =>
-                        <h1>Home Page</h1>
+                        this.state.products.map(product => (
+                            <ProductCard product={product}/>
+                        ))
+
                     } />
                     <Route exact path='/addproduct' render={() =>
-                        <AddProductPage />
+                        <AddProductPage handleAddProduct={this.handleAddProduct}/>
                     } />
                     <Route exact path='/signup' render={({ history }) =>
                         <SignupPage

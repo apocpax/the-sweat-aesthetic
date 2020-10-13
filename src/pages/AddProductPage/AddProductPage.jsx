@@ -7,7 +7,7 @@ import AddProductForm from '../../components/AddProductForm/AddProductForm'
 function AddProductPage(props) {
     return (
         <div>
-            <AddProductForm />
+            <AddProductForm handleAddProduct={props.handleAddProduct}/>
         </div>
     )
 }
