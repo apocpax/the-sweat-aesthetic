@@ -10,8 +10,7 @@ const NavBar = (props) => {
         </div>
         :
         <div>
-            <NavLink exact to="/allproducts">ALL PRODUCTS</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
-            <NavLink exact to="/addproduct">ADD PRODUCT</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
+            <NavLink exact to="/manageproducts">MANAGE PRODUCTS</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
             <NavLink to='/login' className='NavBar-link'>LOG IN</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
         <NavLink to='/signup' className='NavBar-link'>SIGN UP</NavLink>
         </div>;

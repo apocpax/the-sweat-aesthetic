@@ -14,14 +14,25 @@ function ProductCard(props) {
                 <p>Collection: {props.product.category}</p>
                 <p>Price: ${props.product.price}</p>
                 <p>{props.product.inventory} in stock</p>
-                <Link
-                    to={`/api/products/${props.product._id}`}
-                    onClick={() => props.handleDeleteProduct(props.product._id)}
-                >
-                <button>
+
+                    <button
+                        onClick={() => props.handleDeleteProduct(props.product._id)}
+                    >
                         Delete Product
-                </button>
+                    </button>
+
+                <Link
+                    to={{
+                        pathname: '/editproduct',
+                        state: {product: props.product}
+                    
+                    }}   
+                >
+                    <button>
+                        Edit Product
+                    </button>
                 </Link>
+
             </div>
         </div>
     )

@@ -8,7 +8,8 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AddProductPage from '../AddProductPage/AddProductPage'
-import AllProductsPage from '../AllProductsPage/AllProductsPage'
+import ManageProductsPage from '../ManageProductsPage/ManageProductsPage'
+import EditProductPage from '../EditProductPage/EditProductPage'
 
 
 
@@ -35,7 +36,7 @@ class App extends Component {
         this.setState(state => ({
             products: [...state.products, newProduct]
         }),
-            () => this.props.history.push('/allproducts')
+            () => this.props.history.push('/manageproducts')
         )
     }
 
@@ -44,9 +45,23 @@ class App extends Component {
         this.setState(state => ({
             products: state.products.filter(product => product._id !== id)
         }),
-            () => this.props.history.push('/allproducts')
+            () => this.props.history.push('/manageproducts')
         )
     }
+
+    handleUpdateProduct = async product => {
+        const updatedProduct = await productsAPI.update(product);
+        const newProductArray = this.state.products.map(p =>
+            p._id === updatedProduct._id ? updatedProduct : p
+        )
+        console.log(newProductArray)
+        this.setState(
+            {products: newProductArray},
+            () => this.props.history.push('/manageproducts')
+        )
+    }
+
+    
 
 
     // ----- Authentication Functions ----- //
@@ -75,14 +90,22 @@ class App extends Component {
                 </header>
 
                 <Switch>
-                    <Route exact path='/allproducts' render={() =>
-                        <AllProductsPage 
+                    <Route exact path='/manageproducts' render={() =>
+                        <ManageProductsPage 
                             products={this.state.products}
                             handleDeleteProduct={this.handleDeleteProduct}
                         /> 
                     } />
                     <Route exact path='/addproduct' render={() =>
-                        <AddProductPage handleAddProduct={this.handleAddProduct}/>
+                        <AddProductPage 
+                            handleAddProduct={this.handleAddProduct}
+                        />
+                    } />
+                    <Route exact path='/editproduct' render={({location}) =>
+                        <EditProductPage 
+                            handleUpdateProduct={this.handleUpdateProduct}
+                            location={ location }
+                        />
                     } />
                     <Route exact path='/signup' render={({ history }) =>
                         <SignupPage
