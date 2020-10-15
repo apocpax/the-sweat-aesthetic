@@ -18,6 +18,7 @@ class AddProductForm extends Component {
 
     handleChange = (e) => {
         const formData = { ...this.state.formData, [e.target.name]: e.target.value }
+        console.log(formData)
         this.setState({
             formData: formData,
             invalidForm: !this.formRef.current.checkValidity()
@@ -88,15 +89,7 @@ class AddProductForm extends Component {
                         />
                     </div>
                     <div>
-                        {/* is this okay? */}
-                        <Link 
-                            to={{
-                                pathname: '/addvariants/',
-                                state: {product: this.state.formData}
-                            }}
-                        >
                         <button type="submit" disabled={this.state.invalidForm}>Next (Add Variants)</button>
-                        </Link>
                     </div>
                 </form>
             </>

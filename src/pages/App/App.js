@@ -36,8 +36,8 @@ class App extends Component {
         const newProduct = await productsAPI.create(newProductData);
         this.setState(state => ({
             products: [...state.products, newProduct]
-        })
-            // () => this.props.history.push(`/addvariants/`)
+        }),
+            () => this.props.history.push(`/addvariants/`)
         )
     }
 
@@ -107,6 +107,7 @@ class App extends Component {
                         <AddVariantPage
                             // need to add variant function still
                             handleAddVariant={this.handleAddVariant}
+                            product={this.state.products[this.state.products.length - 1]}
                             location={ location }
                         />
                     } />

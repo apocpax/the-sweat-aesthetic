@@ -7,7 +7,7 @@ function AddVariantPage (props) {
         <div>
             <h1>You just added this product:</h1>
             <ProductCard 
-                product={props.location.state.product}
+                product={props.product}
             />
 
 
