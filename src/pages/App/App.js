@@ -113,6 +113,7 @@ class App extends Component {
                     <Route exact path='/manageproducts' render={() =>
                         <ManageProductsPage 
                             products={this.state.products}
+                            variants={this.state.variants}
                             handleDeleteProduct={this.handleDeleteProduct}
                         /> 
                     } />

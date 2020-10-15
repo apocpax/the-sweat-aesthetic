@@ -10,6 +10,7 @@ function ManageProductsPage(props) {
                 <ProductCard
                     product={product} key={product._id}
                     handleDeleteProduct={props.handleDeleteProduct}
+                    productVariants={props.variants.filter(variant => variant.product === product._id)}
                 />
             ))}
         </div>

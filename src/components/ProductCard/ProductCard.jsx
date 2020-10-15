@@ -13,18 +13,23 @@ function ProductCard(props) {
                 <p>Price: ${props.product.price}</p>
 
 
-                    <button
-                        onClick={() => props.handleDeleteProduct(props.product._id)}
-                    >
-                        Delete Product
+                {props.productVariants.map(variant => (
+                    <p>{variant.size}</p>
+                ))}
+
+
+                <button
+                    onClick={() => props.handleDeleteProduct(props.product._id)}
+                >
+                    Delete Product
                     </button>
 
                 <Link
                     to={{
                         pathname: '/editproduct',
-                        state: {product: props.product}
-                    
-                    }}   
+                        state: { product: props.product }
+
+                    }}
                 >
                     <button>
                         Edit Product
