@@ -13,9 +13,8 @@ function ProductCard(props) {
                 <p>Price: ${props.product.price}</p>
 
 
-                {props.productVariants.map(variant => (
-                    <p>{variant.size}</p>
-                ))}
+                <p>Sizes: {props.productVariants.length}</p>
+       
 
 
                 <button
@@ -28,7 +27,6 @@ function ProductCard(props) {
                     to={{
                         pathname: '/editproduct',
                         state: { product: props.product }
-
                     }}
                 >
                     <button>
