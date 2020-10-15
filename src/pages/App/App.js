@@ -31,8 +31,10 @@ class App extends Component {
 
     async componentDidMount() {
         const products = await productsAPI.getAll();
+        const variants = await variantsAPI.getAll();
         this.setState({ 
             products: products,
+            variants: variants,
             newProduct: products[products.length - 1]
         })
     }
@@ -49,10 +51,11 @@ class App extends Component {
         )
     }
 
-    handleDeleteProduct = async (id) => {
-        await productsAPI.deleteOne(id);
+    handleDeleteProduct = async (productId) => {
+        await productsAPI.deleteOne(productId);
+        await variantsAPI.deleteMany(productId);
         this.setState(state => ({
-            products: state.products.filter(product => product._id !== id)
+            products: state.products.filter(product => product._id !== productId)
         }),
             () => this.props.history.push('/manageproducts')
         )
@@ -124,6 +127,7 @@ class App extends Component {
                             // need to add variant function still
                             handleAddVariant={this.handleAddVariant}
                             product={this.state.newProduct}
+                            variants={this.state.variants}
                             location={ location }
                         />
                     } />

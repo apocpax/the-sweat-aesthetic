@@ -1,6 +1,8 @@
 import React from 'react';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import AddVariantForm from '../../components/AddVariantForm/AddVariantForm'
+import VariantCard from '../../components/VariantCard/VariantCard'
+import { Link } from 'react-router-dom';
 
 function AddVariantPage (props) {
     return(
@@ -10,11 +12,20 @@ function AddVariantPage (props) {
                 product={props.product}
             />
 
+            <div>
+                {props.variants.map(variant => 
+                    variant.product === props.product._id ? <VariantCard variant={variant}/> : null
+                )}
+            </div>
+
 
             <AddVariantForm 
                 product={props.product}
                 handleAddVariant={props.handleAddVariant}
             />
+            
+            <Link to='/manageproducts'><button>Done Adding Variants</button></Link>
+            
         </div>
     )
 }

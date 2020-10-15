@@ -13,3 +13,10 @@ export function create(newVariant) {
         body: JSON.stringify(newVariant)
     }).then(res => res.json());
 }
+
+
+export function deleteMany(id) {
+    return fetch(`${BASE_URL}/productvariants/${id}`, {
+        method: 'DELETE'
+    }).then(res => res.json());
+}

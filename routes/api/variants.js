@@ -4,5 +4,6 @@ var variantsCtrl = require('../../controllers/api/variants');
 
 router.get('/', variantsCtrl.index)
 router.post('/', variantsCtrl.create)
+router.delete('/productvariants/:id', variantsCtrl.deleteMany)
 
 module.exports = router;
