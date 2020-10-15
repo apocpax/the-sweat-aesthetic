@@ -10,10 +10,9 @@ function ProductCard(props) {
             <div>
                 <h2>{props.product.name}</h2>
                 <p>{props.product.description}</p>
-                <p>Size: {props.product.size}</p>
                 <p>Collection: {props.product.category}</p>
                 <p>Price: ${props.product.price}</p>
-                <p>{props.product.inventory} in stock</p>
+
 
                     <button
                         onClick={() => props.handleDeleteProduct(props.product._id)}

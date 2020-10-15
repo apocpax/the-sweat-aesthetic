@@ -10,6 +10,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import AddProductPage from '../AddProductPage/AddProductPage'
 import ManageProductsPage from '../ManageProductsPage/ManageProductsPage'
 import EditProductPage from '../EditProductPage/EditProductPage'
+import AddVariantPage from '../AddVariantPage/AddVariantPage'
 
 
 
@@ -35,8 +36,8 @@ class App extends Component {
         const newProduct = await productsAPI.create(newProductData);
         this.setState(state => ({
             products: [...state.products, newProduct]
-        }),
-            () => this.props.history.push('/manageproducts')
+        })
+            // () => this.props.history.push(`/addvariants/`)
         )
     }
 
@@ -96,9 +97,17 @@ class App extends Component {
                             handleDeleteProduct={this.handleDeleteProduct}
                         /> 
                     } />
-                    <Route exact path='/addproduct' render={() =>
+                    <Route exact path='/addproduct' render={({ history }) =>
                         <AddProductPage 
                             handleAddProduct={this.handleAddProduct}
+                            history={history}
+                        />
+                    } />
+                    <Route exact path='/addvariants' render={({location}) =>
+                        <AddVariantPage
+                            // need to add variant function still
+                            handleAddVariant={this.handleAddVariant}
+                            location={ location }
                         />
                     } />
                     <Route exact path='/editproduct' render={({location}) =>
