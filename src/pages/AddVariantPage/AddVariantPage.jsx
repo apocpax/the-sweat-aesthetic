@@ -11,7 +11,10 @@ function AddVariantPage (props) {
             />
 
 
-            <AddVariantForm />
+            <AddVariantForm 
+                product={props.product}
+                handleAddVariant={props.handleAddVariant}
+            />
         </div>
     )
 }

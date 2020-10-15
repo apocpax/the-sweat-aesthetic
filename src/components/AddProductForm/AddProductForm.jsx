@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 
 class AddProductForm extends Component {
@@ -8,7 +7,7 @@ class AddProductForm extends Component {
         formData: {
             name: '',
             description: '',
-            category: '',
+            category: "Men's Shorts",
             price: 0,
             photo: ''
         }

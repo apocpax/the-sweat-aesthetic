@@ -9,6 +9,7 @@ require('./config/database');
 const app = express();
 
 const productsRouter = require('./routes/api/products')
+const variantsRouter = require('./routes/api/variants')
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/products', productsRouter)
+app.use('/api/variants', variantsRouter)
 
 // Mount the auth middleware that processes JWTs
 app.use(require('./config/auth'));

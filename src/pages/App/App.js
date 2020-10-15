@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
+
 import * as productsAPI from '../../services/products-api'
+import * as variantsAPI from '../../services/variants-api'
 
 import userService from '../../utils/userService';
 import SignupPage from '../SignupPage/SignupPage';
@@ -21,27 +23,33 @@ class App extends Component {
         super();
         this.state = {
             products: [],
+            variants: [],
+            newProduct: {},
             user: userService.getUser()
         };
     }
 
     async componentDidMount() {
         const products = await productsAPI.getAll();
-        this.setState({ products: products })
+        this.setState({ 
+            products: products,
+            newProduct: products[products.length - 1]
+        })
     }
 
     // ----- CRUD Functions ----- //
 
-    handleAddProduct = async newProductData => {
+    handleAddProduct = async (newProductData) => {
         const newProduct = await productsAPI.create(newProductData);
         this.setState(state => ({
-            products: [...state.products, newProduct]
+            products: [...state.products, newProduct],
+            newProduct: newProduct
         }),
             () => this.props.history.push(`/addvariants/`)
         )
     }
 
-    handleDeleteProduct = async id => {
+    handleDeleteProduct = async (id) => {
         await productsAPI.deleteOne(id);
         this.setState(state => ({
             products: state.products.filter(product => product._id !== id)
@@ -50,7 +58,7 @@ class App extends Component {
         )
     }
 
-    handleUpdateProduct = async product => {
+    handleUpdateProduct = async (product) => {
         const updatedProduct = await productsAPI.update(product);
         const newProductArray = this.state.products.map(p =>
             p._id === updatedProduct._id ? updatedProduct : p
@@ -62,7 +70,15 @@ class App extends Component {
         )
     }
 
-    
+    handleAddVariant = async (newVariantData) => {
+        const newVariant = await variantsAPI.create(newVariantData);
+        this.setState(state => ({
+            variants: [...state.variants, newVariant]
+        }),
+            () => this.props.history.push('/addvariants')
+        )
+
+    }
 
 
     // ----- Authentication Functions ----- //
@@ -107,7 +123,7 @@ class App extends Component {
                         <AddVariantPage
                             // need to add variant function still
                             handleAddVariant={this.handleAddVariant}
-                            product={this.state.products[this.state.products.length - 1]}
+                            product={this.state.newProduct}
                             location={ location }
                         />
                     } />

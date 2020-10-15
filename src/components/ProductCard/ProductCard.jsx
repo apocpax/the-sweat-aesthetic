@@ -3,8 +3,6 @@ import styles from './ProductCard.module.css'
 import { Link } from 'react-router-dom'
 
 function ProductCard(props) {
-    console.log(props.product)
-
     return (
         <div className={styles.div}>
             <img src={props.product.photo} className={styles.img} />

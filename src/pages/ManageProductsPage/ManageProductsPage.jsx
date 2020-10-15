@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function ManageProductsPage(props) {
     return (
         <div>
-            <Link exact to="/addproduct"><button>ADD PRODUCT</button></Link>
+            <Link to="/addproduct"><button>ADD PRODUCT</button></Link>
             {props.products.map(product => (
                 <ProductCard
                     product={product} key={product._id}
