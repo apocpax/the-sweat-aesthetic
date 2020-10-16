@@ -7,6 +7,7 @@ function InventoryPage(props) {
             <InventoryTable
                 products={props.products}
                 variants={props.variants}
+                handleUpdateInventory={props.handleUpdateInventory}
             />
         </div>
     )

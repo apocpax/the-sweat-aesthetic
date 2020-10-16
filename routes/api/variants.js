@@ -5,13 +5,14 @@ var variantsCtrl = require('../../controllers/api/variants');
 
 /*---------- Public Routes ----------*/
 router.get('/', variantsCtrl.index)
-router.put('/:id', variantsCtrl.updateInventory)
+router.put('/orderconfirmed/:id', variantsCtrl.incrementInventory)
 
 /*---------- Protected Routes ----------*/
 
 router.use(require('../../config/auth'));
 router.post('/', checkAuth, variantsCtrl.create)
 router.delete('/productvariants/:id', checkAuth, variantsCtrl.deleteMany)
+router.put('/:id', checkAuth, variantsCtrl.updateInventory)
 
 /*--  Helper Functions --*/
 function checkAuth(req, res, next) {

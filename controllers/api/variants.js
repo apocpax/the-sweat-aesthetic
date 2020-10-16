@@ -4,6 +4,7 @@ module.exports = {
     index,
     create,
     deleteMany,
+    incrementInventory,
     updateInventory
 }
 
@@ -22,9 +23,12 @@ async function deleteMany(req, res) {
     res.status(200).json(variants)
 }
 
+async function incrementInventory(req, res) {
+    const variant = await Variant.findByIdAndUpdate(req.params.id, {$inc: { inventory: -1} }, { new: true });
+    res.status(200).json(variant)
+}
+
 async function updateInventory(req, res) {
-    const variant = await Variant.findByIdAndUpdate(req.params.id, {$inc: { inventory: -1} }, {
-        new: true,
-    });
+    const variant = await Variant.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(variant)
 }

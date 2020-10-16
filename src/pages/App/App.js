@@ -35,8 +35,8 @@ class App extends Component {
     }
 
     async componentDidMount() {
-        const products = await productsAPI.getAll();
         const variants = await variantsAPI.getAll();
+        const products = await productsAPI.getAll();
         this.setState({
             products: products,
             variants: variants,
@@ -88,7 +88,7 @@ class App extends Component {
     }
 
     handlePurchase = async (variantId) => {
-        const updatedVariant = await variantsAPI.updateInventory(variantId)
+        const updatedVariant = await variantsAPI.incrementInventory(variantId)
         const newVariantArray = this.state.variants.map(variant =>
             variant._id === updatedVariant._id ? updatedVariant : variant   
         )
@@ -98,16 +98,29 @@ class App extends Component {
         )
     }
 
+    handleUpdateInventory = async (variant) => {
+        const updatedVariant = await variantsAPI.updateInventory(variant);
+        const newVariantArray = this.state.variants.map(variant =>
+            variant._id === updatedVariant._id ? updatedVariant : variant   
+        )
+        this.setState(
+            { variants: newVariantArray },
+            () => this.props.history.push('/inventory')
+        )
+    }
+
 
     // ----- Authentication Functions ----- //
 
     handleLogout = () => {
         userService.logout();
         this.setState({ user: null });
+        this.componentDidMount()
     }
 
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser() });
+        this.componentDidMount()
     }
 
     render() {
@@ -167,6 +180,7 @@ class App extends Component {
                         <InventoryPage
                             products={this.state.products}
                             variants={this.state.variants}
+                            handleUpdateInventory={this.handleUpdateInventory}
                         />
                         :
                         <Redirect to='/login' />

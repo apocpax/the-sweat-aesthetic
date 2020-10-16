@@ -29,10 +29,21 @@ export function deleteMany(id) {
     }).then(res => res.json());
 }
 
-export function updateInventory(variantId) {
-    return fetch(`${BASE_URL}/${variantId.sizeId}`, {
+export function incrementInventory(variantId) {
+    return fetch(`${BASE_URL}/orderconfirmed/${variantId.sizeId}`, {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(variantId)
+    }).then(res => res.json());
+}
+
+export function updateInventory(variant) {
+    return fetch(`${BASE_URL}/${variant._id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify(variant)
     }).then(res => res.json());
 }

@@ -1,6 +1,9 @@
 import React from 'react';
+import InventoryForm from '../InventoryForm/InventoryForm'
 
 function InventoryTable(props) {
+
+    
     return (
         <div>
             <h1>this is InventoryPage</h1>
@@ -10,14 +13,15 @@ function InventoryTable(props) {
                         <th>Product</th>
                         <th>Variant</th>
                         <th>Inventory</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.variants.map(variant => (
-                        <tr>
+                        <tr key={variant._id}>
                             <td>{props.products.find(product => product._id === variant.product).name}</td>
                             <td>{variant.size}</td>
-                            <td>{variant.inventory}</td>
+                            <td><InventoryForm variant={variant} handleUpdateInventory={props.handleUpdateInventory}/></td>
                         </tr>
                     ))}
                     <tr>

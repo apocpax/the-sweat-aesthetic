@@ -15,7 +15,7 @@ function AddVariantPage (props) {
 
             <div>
                 {props.variants.map(variant => 
-                    variant.product === props.product._id ? <VariantCard variant={variant}/> : null
+                    variant.product === props.product._id ? <VariantCard key={variant._id} variant={variant}/> : null
                 )}
             </div>
 
