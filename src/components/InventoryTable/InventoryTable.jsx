@@ -6,14 +6,12 @@ function InventoryTable(props) {
     
     return (
         <div>
-            <h1>this is InventoryPage</h1>
-            <table>
+            <table className="table is-bordered is-fullwidth">
                 <thead>
                     <tr>
                         <th>Product</th>
                         <th>Variant</th>
                         <th>Inventory</th>
-                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
