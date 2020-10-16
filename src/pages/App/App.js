@@ -17,6 +17,7 @@ import CollectionsPage from '../CollectionsPage/CollectionsPage'
 import ShopPage from '../ShopPage/ShopPage'
 import ShopDetailsPage from '../ShopDetailsPage/ShopDetailsPage'
 import OrderConfirmedPage from '../OrderConfirmedPage/OrderConfirmedPage'
+import InventoryPage from '../InventoryPage/InventoryPage'
 
 
 
@@ -159,6 +160,16 @@ class App extends Component {
                         <OrderConfirmedPage
                             location={location}
                         />
+                    } />
+
+                    <Route exact path='/inventory' render={() =>
+                        userService.getUser() ?
+                        <InventoryPage
+                            products={this.state.products}
+                            variants={this.state.variants}
+                        />
+                        :
+                        <Redirect to='/login' />
                     } />
 
                     <Route exact path='/manageproducts' render={() =>
