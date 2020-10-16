@@ -1,3 +1,4 @@
+import tokenService from '../utils/tokenService';
 const BASE_URL = '/api/variants';
 
 
@@ -9,7 +10,10 @@ export function getAll() {
 export function create(newVariant) {
     return fetch(BASE_URL, {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
         body: JSON.stringify(newVariant)
     }).then(res => res.json());
 }
@@ -17,7 +21,11 @@ export function create(newVariant) {
 
 export function deleteMany(id) {
     return fetch(`${BASE_URL}/productvariants/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
     }).then(res => res.json());
 }
 

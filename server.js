@@ -18,11 +18,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/products', productsRouter)
 app.use('/api/variants', variantsRouter)
 
-// Mount the auth middleware that processes JWTs
+//Protect all routes related to products
 app.use(require('./config/auth'));
+app.use('/api/products', productsRouter)
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work 

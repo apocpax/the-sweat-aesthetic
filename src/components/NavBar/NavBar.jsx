@@ -6,12 +6,12 @@ const NavBar = (props) => {
         <div>
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <NavLink exact to="/manageproducts">MANAGE PRODUCTS</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
         <NavLink to='' onClick={props.handleLogout} className='NavBar-link'>LOG OUT</NavLink>
         </div>
         :
         <div>
             <NavLink exact to="/collections">COLLECTIONS</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
-            <NavLink exact to="/manageproducts">MANAGE PRODUCTS</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
             <NavLink to='/login' className='NavBar-link'>LOG IN</NavLink> &nbsp;&nbsp;|&nbsp;&nbsp;
         <NavLink to='/signup' className='NavBar-link'>SIGN UP</NavLink>
         </div>;

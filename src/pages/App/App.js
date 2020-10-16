@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import * as productsAPI from '../../services/products-api'
 import * as variantsAPI from '../../services/variants-api'
@@ -162,19 +162,26 @@ class App extends Component {
                     } />
 
                     <Route exact path='/manageproducts' render={() =>
+                        userService.getUser() ?
                         <ManageProductsPage
                             products={this.state.products}
                             variants={this.state.variants}
                             handleDeleteProduct={this.handleDeleteProduct}
                         />
+                        :
+                        <Redirect to='/login' />
                     } />
                     <Route exact path='/addproduct' render={({ history }) =>
+                        userService.getUser() ?
                         <AddProductPage
                             history={history}
                             handleAddProduct={this.handleAddProduct}
                         />
+                        :
+                        <Redirect to='/login' />
                     } />
                     <Route exact path='/addvariants' render={({ location }) =>
+                        userService.getUser() ?
                         <AddVariantPage
                             variants={this.state.variants}
                             product={this.state.newProduct}
@@ -182,12 +189,17 @@ class App extends Component {
                             location={location}
                             handleAddVariant={this.handleAddVariant}
                         />
+                        :
+                        <Redirect to='/login' />
                     } />
                     <Route exact path='/editproduct' render={({ location }) =>
+                        userService.getUser() ?
                         <EditProductPage
                             handleUpdateProduct={this.handleUpdateProduct}
                             location={location}
                         />
+                        :
+                        <Redirect to='/login' />
                     } />
                     <Route exact path='/signup' render={({ history }) =>
                         <SignupPage
