@@ -18,6 +18,7 @@ import ShopPage from '../ShopPage/ShopPage'
 import ShopDetailsPage from '../ShopDetailsPage/ShopDetailsPage'
 import OrderConfirmedPage from '../OrderConfirmedPage/OrderConfirmedPage'
 import InventoryPage from '../InventoryPage/InventoryPage'
+import SplashPage from '../SplashPage/SplashPage'
 
 
 
@@ -138,6 +139,10 @@ class App extends Component {
                 </header>
 
                 <Switch>
+                    <Route exact path='/' render={() =>
+                        <SplashPage
+                        />
+                    } />
                     <Route exact path='/collections' render={() =>
                         <CollectionsPage
                         />
