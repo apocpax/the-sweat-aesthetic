@@ -10,6 +10,7 @@ function AddVariantPage (props) {
             <h1>You just added this product:</h1>
             <ProductCard 
                 product={props.product}
+                productVariants={props.variants.filter(variant => variant.product === props.product._id)}
             />
 
             <div>

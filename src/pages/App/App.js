@@ -13,6 +13,9 @@ import AddProductPage from '../AddProductPage/AddProductPage'
 import ManageProductsPage from '../ManageProductsPage/ManageProductsPage'
 import EditProductPage from '../EditProductPage/EditProductPage'
 import AddVariantPage from '../AddVariantPage/AddVariantPage'
+import CollectionsPage from '../CollectionsPage/CollectionsPage'
+import ShopPage from '../ShopPage/ShopPage'
+import ShopDetailsPage from '../ShopDetailsPage/ShopDetailsPage'
 
 
 
@@ -32,7 +35,7 @@ class App extends Component {
     async componentDidMount() {
         const products = await productsAPI.getAll();
         const variants = await variantsAPI.getAll();
-        this.setState({ 
+        this.setState({
             products: products,
             variants: variants,
             newProduct: products[products.length - 1]
@@ -68,7 +71,7 @@ class App extends Component {
         )
         console.log(newProductArray)
         this.setState(
-            {products: newProductArray},
+            { products: newProductArray },
             () => this.props.history.push('/manageproducts')
         )
     }
@@ -110,32 +113,61 @@ class App extends Component {
                 </header>
 
                 <Switch>
+                    <Route exact path='/collections' render={() =>
+                        <CollectionsPage
+                        />
+                    } />
+                    <Route exact path='/collections/womens-tri-tops' render={() =>
+                        <ShopPage
+                            products={this.state.products.filter(product => product.category === "Women's Tops")}
+                        />
+                    } />
+                    <Route exact path='/collections/womens-tri-shorts' render={() =>
+                        <ShopPage
+                            products={this.state.products.filter(product => product.category === "Women's Shorts")}
+                        />
+                    } />
+                    <Route exact path='/collections/mens-tri-tops' render={() =>
+                        <ShopPage
+                            products={this.state.products.filter(product => product.category === "Men's Tops")}
+                        />
+                    } />
+                    <Route exact path='/collections/mens-tri-shorts' render={() =>
+                        <ShopPage
+                            products={this.state.products.filter(product => product.category === "Men's Shorts")}
+                        />
+                    } />
+                    <Route exact path='/details' render={({location}) =>
+                        <ShopDetailsPage
+                            location={location}
+                        />
+                    } />
                     <Route exact path='/manageproducts' render={() =>
-                        <ManageProductsPage 
+                        <ManageProductsPage
                             products={this.state.products}
                             variants={this.state.variants}
                             handleDeleteProduct={this.handleDeleteProduct}
-                        /> 
+                        />
                     } />
                     <Route exact path='/addproduct' render={({ history }) =>
-                        <AddProductPage 
-                            handleAddProduct={this.handleAddProduct}
+                        <AddProductPage
                             history={history}
+                            handleAddProduct={this.handleAddProduct}
                         />
                     } />
-                    <Route exact path='/addvariants' render={({location}) =>
+                    <Route exact path='/addvariants' render={({ location }) =>
                         <AddVariantPage
-                            // need to add variant function still
-                            handleAddVariant={this.handleAddVariant}
+                            variants={this.state.variants}
                             product={this.state.newProduct}
                             variants={this.state.variants}
-                            location={ location }
+                            location={location}
+                            handleAddVariant={this.handleAddVariant}
                         />
                     } />
-                    <Route exact path='/editproduct' render={({location}) =>
-                        <EditProductPage 
+                    <Route exact path='/editproduct' render={({ location }) =>
+                        <EditProductPage
                             handleUpdateProduct={this.handleUpdateProduct}
-                            location={ location }
+                            location={location}
                         />
                     } />
                     <Route exact path='/signup' render={({ history }) =>
