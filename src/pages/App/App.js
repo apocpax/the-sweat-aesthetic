@@ -140,6 +140,7 @@ class App extends Component {
                     <Route exact path='/details' render={({location}) =>
                         <ShopDetailsPage
                             location={location}
+                            variants={this.state.variants}
                         />
                     } />
                     <Route exact path='/manageproducts' render={() =>
