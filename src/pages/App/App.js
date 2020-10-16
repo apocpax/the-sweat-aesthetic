@@ -16,6 +16,7 @@ import AddVariantPage from '../AddVariantPage/AddVariantPage'
 import CollectionsPage from '../CollectionsPage/CollectionsPage'
 import ShopPage from '../ShopPage/ShopPage'
 import ShopDetailsPage from '../ShopDetailsPage/ShopDetailsPage'
+import OrderConfirmedPage from '../OrderConfirmedPage/OrderConfirmedPage'
 
 
 
@@ -69,7 +70,6 @@ class App extends Component {
         const newProductArray = this.state.products.map(p =>
             p._id === updatedProduct._id ? updatedProduct : p
         )
-        console.log(newProductArray)
         this.setState(
             { products: newProductArray },
             () => this.props.history.push('/manageproducts')
@@ -84,6 +84,17 @@ class App extends Component {
             () => this.props.history.push('/addvariants')
         )
 
+    }
+
+    handlePurchase = async (variantId) => {
+        const updatedVariant = await variantsAPI.updateInventory(variantId)
+        const newVariantArray = this.state.variants.map(variant =>
+            variant._id === updatedVariant._id ? updatedVariant : variant   
+        )
+        this.setState(
+            { variants: newVariantArray },
+            () => this.props.history.push('/order-confirmed')
+        )
     }
 
 
@@ -141,8 +152,15 @@ class App extends Component {
                         <ShopDetailsPage
                             location={location}
                             variants={this.state.variants}
+                            handlePurchase={this.handlePurchase}
                         />
                     } />
+                    <Route exact path='/order-confirmed' render={({location}) =>
+                        <OrderConfirmedPage
+                            location={location}
+                        />
+                    } />
+
                     <Route exact path='/manageproducts' render={() =>
                         <ManageProductsPage
                             products={this.state.products}

@@ -1,15 +1,59 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class PurchaseForm extends Component{
+class PurchaseForm extends Component {
     state = {
+        invalidForm: true,
         formData: {
-            size: '',
+            sizeId: '',
         }
+    }
+
+    formRef = React.createRef();
+
+    handleChange = (e) => {
+        const formData = {
+            ...this.state.formData,
+            [e.target.name]: e.target.value,
+        }
+        this.setState({
+            formData,
+            invalidForm: !this.formRef.current.checkValidity()
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.handlePurchase(this.state.formData);
+
     }
 
     render() {
         return (
-            <p>this is PurchaseForm</p>
+            <div>
+                <form onSubmit={this.handleSubmit} autoComplete="off" ref={this.formRef}>
+                    <div>
+                        <label>Size</label>
+                        <select
+                            name="sizeId"
+                            value={this.state.formData.sizeId}
+                            onChange={this.handleChange}
+                            required
+                        >
+                            <option>Select Size</option>
+                            {this.props.variants.map(variant => (
+                                <option value={variant._id} key={variant._id}>{variant.size} {variant.inventory} in stock.</option>
+                            ))}
+
+
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" disabled={this.state.invalidForm}>Purchase</button>
+                    </div>
+                </form>
+            </div>
+
         )
     }
 

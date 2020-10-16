@@ -20,3 +20,11 @@ export function deleteMany(id) {
         method: 'DELETE'
     }).then(res => res.json());
 }
+
+export function updateInventory(variantId) {
+    return fetch(`${BASE_URL}/${variantId.sizeId}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(variantId)
+    }).then(res => res.json());
+}
