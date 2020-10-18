@@ -150,21 +150,25 @@ class App extends Component {
                     <Route exact path='/collections/womens-tri-tops' render={() =>
                         <ShopPage
                             products={this.state.products.filter(product => product.category === "Women's Tops")}
+                            category="Women's Tri Tops"
                         />
                     } />
                     <Route exact path='/collections/womens-tri-shorts' render={() =>
                         <ShopPage
                             products={this.state.products.filter(product => product.category === "Women's Shorts")}
+                            category="Women's Tri Shorts"
                         />
                     } />
                     <Route exact path='/collections/mens-tri-tops' render={() =>
                         <ShopPage
                             products={this.state.products.filter(product => product.category === "Men's Tops")}
+                            category="Men's Tri Tops"
                         />
                     } />
                     <Route exact path='/collections/mens-tri-shorts' render={() =>
                         <ShopPage
                             products={this.state.products.filter(product => product.category === "Men's Shorts")}
+                            category="Men's Tri Shorts"
                         />
                     } />
                     <Route exact path='/details' render={({location}) =>

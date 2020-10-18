@@ -1,0 +1,17 @@
+.OC-confirmed {
+    font-size: 4rem;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    margin-top: -5%;
+}
+
+.OC-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://i.imgur.com/LTkSWqY.jpg);
+    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, .5);
+    background-size: 40%;
+    height: 90vh;
+}

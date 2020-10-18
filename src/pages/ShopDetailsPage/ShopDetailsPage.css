@@ -1,0 +1,15 @@
+.SDP-title {
+    color: black;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.SDP-img {
+    max-width: 300px;
+    max-height: 300px;
+    text-align: right;
+}
+
+.SDP {
+    font-family: 'Bebas Neue', cursive;
+}
