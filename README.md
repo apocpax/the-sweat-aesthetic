@@ -1,8 +1,8 @@
-# Safe Travels
+# The Sweat Aesthetic
 
 ## About the App:
 
-The Sweat Aesthetic is a mock ecommerce app used by customers to place orders and by shop owners to manage products and inventory. Customers can browse products by category, select a specific product variant and complete a mock purchase which updates inventory automatically. The shop owner can upload products, add variants, edit/delete products, and manage inventory from a single interface.
+The Sweat Aesthetic is a mock ecommerce app used by customers to place orders and by shop owners to manage products and inventory. Customers can browse products by category, select a specific product variant and complete a mock purchase that updates inventory automatically. The shop owner can upload products, add variants, edit/delete products, and manage inventory from a single interface.
 
 ## Landing Page - A Bit About The Company
 <img src="https://i.imgur.com/qew9Pas.png">
