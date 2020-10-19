@@ -11,7 +11,7 @@ function ShopProductCard(props) {
                 state: { product: props.product }
             }}
             >
-            <img className="SPC-img" src={props.product.photo}/>
+            <img className="SPC-img" src={props.product.photo} alt="product"/>
             </Link>
         <p className="SPC-price">${props.product.price}.00</p>
         </div>

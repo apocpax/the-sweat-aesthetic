@@ -9,7 +9,7 @@ function ShopDetailsPage(props) {
                 <h1 className="SDP-title">{props.location.state.product.name}</h1>
             </div>
             <div className="column is-half mt-6">
-                <img className="SDP-img" src={props.location.state.product.photo}/>
+                <img className="SDP-img" src={props.location.state.product.photo} alt="product"/>
             </div>
 
             <div className="column mt-6">

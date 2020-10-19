@@ -24,26 +24,26 @@ import SplashPage from '../SplashPage/SplashPage'
 
 
 class App extends Component {
+    state = {
+        products: [],
+        variants: [],
+        newProduct: {},
+        user: userService.getUser()
 
-    constructor() {
-        super();
-        this.state = {
-            products: [],
-            variants: [],
-            newProduct: {},
-            user: userService.getUser()
-        };
     }
 
+
     async componentDidMount() {
-        const variants = await variantsAPI.getAll();
+        console.log('mounted')
         const products = await productsAPI.getAll();
+        const variants = await variantsAPI.getAll();
         this.setState({
             products: products,
             variants: variants,
             newProduct: products[products.length - 1]
-        })
+        });
     }
+
 
     // ----- CRUD Functions ----- //
 
@@ -118,12 +118,12 @@ class App extends Component {
     handleLogout = () => {
         userService.logout();
         this.setState({ user: null });
-        this.componentDidMount()
+        // this.componentDidMount()
     }
 
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser() });
-        this.componentDidMount()
+        // this.componentDidMount()
     }
 
     render() {
@@ -220,7 +220,6 @@ class App extends Component {
                             <AddVariantPage
                                 variants={this.state.variants}
                                 product={this.state.newProduct}
-                                variants={this.state.variants}
                                 location={location}
                                 handleAddVariant={this.handleAddVariant}
                             />

@@ -26,7 +26,7 @@ const NavBar = (props) => {
         <nav className="navbar is-black" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <NavLink to="/">
-                    <img className="pt-1" src="https://i.imgur.com/Y4NvYmA.jpg" width="112" height="28" />
+                    <img className="pt-1" src="https://i.imgur.com/Y4NvYmA.jpg" width="112" height="28" alt="The Sweat Aesthetic Logo"/>
                 </NavLink>
 
                 <NavLink to="/" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

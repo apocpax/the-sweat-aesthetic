@@ -7,7 +7,7 @@ function ProductCard(props) {
         <div className="PC-div box columns">
 
             <div className="column is-two-fifths">
-                <img src={props.product.photo} className="PC-img" />
+                <img src={props.product.photo} className="PC-img" alt="product"/>
             </div>
 
             <div className="column is-three-fifths PC-productinfo">
@@ -18,8 +18,6 @@ function ProductCard(props) {
                     <p className="is-size-5"><strong>Price: </strong>${props.product.price}</p>
                     <p className="is-size-5"><strong>Variants: </strong>{props.productVariants.length}</p>
                 </div>
-
-
 
                 <div className="columns PC-buttons">
                     <div className="column is-two-fifths">

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var productsCtrl = require('../../controllers/api/products');
 
-router.get('/', checkAuth, productsCtrl.index);
+router.get('/', productsCtrl.index);
 router.post('/', checkAuth, productsCtrl.create)
 router.delete('/:id', checkAuth, productsCtrl.deleteOne)
 router.put('/:id', checkAuth, productsCtrl.update)
