@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Safe Travels
 
-## Available Scripts
+## About the App:
 
-In the project directory, you can run:
+The Sweat Aesthetic is a mock ecommerce app used by customers to place orders and by shop owners to manage products and inventory. Customers can browse products by category, select a specific product variant and complete a mock purchase which updates inventory automatically. The shop owner can upload products, add variants, edit/delete products, and manage inventory from a single interface.
 
-### `npm start`
+## Landing Page - A Bit About The Company
+<img src="https://i.imgur.com/qew9Pas.png">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Manage Products - Add, Edit, or Delete Products
+<img src="https://i.imgur.com/9orInsY.png">
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Add Variants - Input Sizing & Inventory For A Product
+<img src="https://i.imgur.com/SC6lgOo.png">
 
-### `npm test`
+## Manage Inventory - Quickly Update Inventory From A Single Interface
+<img src="https://i.imgur.com/cFlj952.png">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Product Details - Select A Size And Purchase
+<img src="https://i.imgur.com/DXvW1T1.png">
 
-### `npm run build`
+## Order Confirmation - Inventory Updates Automatically
+<img src="https://i.imgur.com/1buIgyC.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+>
+#### - Mongoose
+#### - Express Web Framework
+#### - React
+#### - Node.js
+#### - AJAX
+#### - MongoDB
+#### - JavaScript
+#### - CSS
+#### - HTML
+#### - JSON Web Tokens
+#### - Bulma CSS Framework
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Next Steps:
+### 1. Create an order that can be tracked when a purchase is made.
+### 2. Reserve product management to admin users.
+### 3. Finalize mobile responsiveness. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# TRY IT OUT -  [The-Sweat-Aesthetic](https://the-sweat-aesthetic.herokuapp.com/)
