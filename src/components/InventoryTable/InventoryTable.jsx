@@ -6,7 +6,7 @@ function InventoryTable(props) {
 
     
     return (
-        <div className="container pr-4 pl-4 pt-6">
+        <div className="container pr-4 pl-4 pt-6 pb-6">
             <table className="table is-bordered is-fullwidth is-hoverable ">
                 <thead>
                     <tr>

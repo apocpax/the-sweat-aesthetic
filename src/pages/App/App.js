@@ -118,12 +118,12 @@ class App extends Component {
     handleLogout = () => {
         userService.logout();
         this.setState({ user: null });
-        // this.componentDidMount()
+        this.componentDidMount()
     }
 
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser() });
-        // this.componentDidMount()
+        this.componentDidMount()
     }
 
     render() {
