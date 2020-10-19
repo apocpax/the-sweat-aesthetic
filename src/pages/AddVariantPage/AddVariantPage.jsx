@@ -26,7 +26,7 @@ function AddVariantPage (props) {
                 handleAddVariant={props.handleAddVariant}
             />
             
-            <Link to='/manageproducts' className="button is-black mt-6 mb-6"> Done Adding Variants </Link>
+            <Link to='/manageproducts' className="button is-black is-large mt-6 mb-6"> Done Adding Variants </Link>
             
         </div>
     )

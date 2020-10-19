@@ -12,11 +12,11 @@ function ProductCard(props) {
 
             <div className="column is-three-fifths PC-productinfo">
                 <div>
-                    <h2 className="title is-6">{props.product.name}</h2>
+                    <h2 className="title is-size-3">{props.product.name}</h2>
                     <p className="subtitle PC-desc">{props.product.description}</p>
-                    <p><strong>Collection: </strong>{props.product.category}</p>
-                    <p><strong>Price: </strong>${props.product.price}</p>
-                    <p><strong>Variants: </strong>{props.productVariants.length}</p>
+                    <p className="is-size-4"><strong>Collection: </strong>{props.product.category}</p>
+                    <p className="is-size-4"><strong>Price: </strong>${props.product.price}</p>
+                    <p className="is-size-4"><strong>Variants: </strong>{props.productVariants.length}</p>
                 </div>
 
 
@@ -24,7 +24,7 @@ function ProductCard(props) {
                 <div className="columns PC-buttons">
                     <div className="column is-two-fifths">
                         <Link
-                            className="button is-black is-small is-fullwidth"
+                            className="button is-black is-medium is-fullwidth"
                             to={{
                                 pathname: '/editproduct',
                                 state: { product: props.product }
@@ -36,7 +36,7 @@ function ProductCard(props) {
 
                         <button
                             onClick={() => props.handleDeleteProduct(props.product._id)}
-                            className="button is-outlined is-small is-fullwidth"
+                            className="button is-outlined is-medium is-fullwidth"
                         >
                             Delete Product
                         </button>

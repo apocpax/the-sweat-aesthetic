@@ -3,7 +3,7 @@
 .main {
     background-image: url(https://cdn.shopify.com/s/files/1/0077/4874/7341/files/homebanner4.jpg?v=1578427023);
     box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, .4);
-    height: 85vh;
+    height: 91vh;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -13,26 +13,26 @@
 .title {
     font-family: 'Bebas Neue', cursive;
     color: white;
-    font-size: 2rem;
-    padding-top: 70px;
+    font-size: 6rem;
+    padding-top: 100px;
 }
 
 .about {
     font-family: 'Bebas Neue', cursive;
     color: white;
     width: 50vw;
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-align: center;
 }
 
 .button {
     font-family: 'Bebas Neue', cursive;
-    font-size: 1rem;
+    font-size: 2rem;
     padding: 10px;
     margin-top: 30px;
     border-radius: 5px;
     border: solid 2px white;
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    width: 200px;
+    width: 300px;
 }

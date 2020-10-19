@@ -40,9 +40,9 @@ class AddVariantForm extends Component {
                     <form className="columns" onSubmit={this.handleSubmit} autoComplete="off" ref={this.formRef}>
 
                         <div className="column is-one-third">
-                            <label className="label">Size</label>
+                            <label className="label is-medium">Size</label>
                             <div className="control">
-                                <div className="select is-small is-fullwidth">
+                                <div className="select is-medium is-fullwidth">
                                     <select
                                         name="size"
                                         value={this.state.formData.size}
@@ -62,10 +62,10 @@ class AddVariantForm extends Component {
 
 
                         <div className="column is-one-third">
-                            <label className="label">Inventory</label>
+                            <label className="label is-medium">Inventory</label>
                             <div className="control">
                                 <input
-                                    className="input is-small"
+                                    className="input is-medium"
                                     type="number"
                                     min="0"
                                     name="inventory"
@@ -78,8 +78,8 @@ class AddVariantForm extends Component {
 
 
                         <div className="column is-one-third">
-                            <label className="label">Add Variant</label>
-                            <button className="button is-success is-small is-fullwidth" type="submit" disabled={this.state.invalidForm}>Submit</button>
+                            <label className="label is-medium">Add Variant</label>
+                            <button className="button is-success is-medium is-fullwidth" type="submit" disabled={this.state.invalidForm}>Submit</button>
                         </div>
 
                     </form>

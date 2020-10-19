@@ -13,7 +13,7 @@
 
 .title {
     font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
+    font-size: 4rem;
     grid-column: 1 / 3;
     color: black;
     margin-top: 10px;
@@ -21,19 +21,19 @@
 
 
 .card {
-    width: 49vw;
+    width: 50vw;
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: black;
     margin-top: 5%;
 }
 
 .topimg {
-    height: 300px;
-    width: 200px;
+    max-height: 400px;
+    max-width: 400px;
 }
 
 .shortimg {
-    height: 200px;
-    width: 300px;
+    max-height: 400px;
+    max-width: 400px;
 }

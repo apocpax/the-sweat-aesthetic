@@ -1,14 +1,16 @@
 .SPC-img {
-    min-width: 60px;
-    max-width: 150px;
+    min-width: 100px;
+    max-width: 400px;
 }
 
 .SPC-title {
     font-family: 'Bebas Neue', cursive;
     color: black;
-
+    font-size: 2rem;
 }
 
 .SPC-price {
     font-family: 'Bebas Neue', cursive;
+    color: black;
+    font-size: 2rem;
 }

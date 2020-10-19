@@ -7,7 +7,7 @@ function OrderConfirmedPage(props) {
         <div className="OC-parent">
             <h1 className="OC-confirmed">Order Confirmed!</h1>
 
-            <Link to="/"><button className="button is-white">Keep Shopping</button></Link>
+            <Link to="/" className="button is-white is-large">Keep Shopping</Link>
         </div>
     )
 }

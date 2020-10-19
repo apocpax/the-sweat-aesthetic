@@ -33,9 +33,9 @@ class PurchaseForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} autoComplete="off" ref={this.formRef}>
-                    <div className="control mt-3">
+                    <div className="control mt-6">
                         <select
-                            className="select PF-select"
+                            className="select PF-select is-large"
                             name="sizeId"
                             value={this.state.formData.sizeId}
                             onChange={this.handleChange}
@@ -50,7 +50,7 @@ class PurchaseForm extends Component {
                         </select>
                     </div>
                     <div>
-                        <button className="button is-normal is-black has-text-weight-bold mt-3" type="submit" disabled={this.state.invalidForm}>Purchase</button>
+                        <button className="button is-large is-black has-text-weight-bold mt-5" type="submit" disabled={this.state.invalidForm}>Purchase</button>
                     </div>
                 </form>
             </div>

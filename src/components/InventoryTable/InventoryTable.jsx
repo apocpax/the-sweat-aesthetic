@@ -1,11 +1,12 @@
 import React from 'react';
 import InventoryForm from '../InventoryForm/InventoryForm'
+import './InventoryTable.css'
 
 function InventoryTable(props) {
 
     
     return (
-        <div className="container is-fluid pt-6">
+        <div className="container pr-4 pl-4 pt-6">
             <table className="table is-bordered is-fullwidth is-hoverable ">
                 <thead>
                     <tr>
