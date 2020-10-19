@@ -72,7 +72,7 @@ class App extends Component {
         const newProductArray = this.state.products.map(p =>
             p._id === updatedProduct._id ? updatedProduct : p
         )
-        this.setState({ 
+        this.setState({
             products: newProductArray,
             newProduct: updatedProduct
         },
@@ -93,7 +93,7 @@ class App extends Component {
     handlePurchase = async (variantId) => {
         const updatedVariant = await variantsAPI.incrementInventory(variantId)
         const newVariantArray = this.state.variants.map(variant =>
-            variant._id === updatedVariant._id ? updatedVariant : variant   
+            variant._id === updatedVariant._id ? updatedVariant : variant
         )
         this.setState(
             { variants: newVariantArray },
@@ -104,7 +104,7 @@ class App extends Component {
     handleUpdateInventory = async (variant) => {
         const updatedVariant = await variantsAPI.updateInventory(variant);
         const newVariantArray = this.state.variants.map(variant =>
-            variant._id === updatedVariant._id ? updatedVariant : variant   
+            variant._id === updatedVariant._id ? updatedVariant : variant
         )
         this.setState(
             { variants: newVariantArray },
@@ -130,15 +130,14 @@ class App extends Component {
         return (
 
             <div className="App">
-                <header className="App-header">
-                    The Sweat Aesthetic
-                    <nav>
-                        <NavBar
-                            user={this.state.user}
-                            handleLogout={this.handleLogout}
-                        />
-                    </nav>
+
+                <header>
+                    <NavBar
+                        user={this.state.user}
+                        handleLogout={this.handleLogout}
+                    />
                 </header>
+
 
                 <Switch>
                     <Route exact path='/' render={() =>
@@ -173,14 +172,14 @@ class App extends Component {
                             category="Men's Tri Shorts"
                         />
                     } />
-                    <Route exact path='/details' render={({location}) =>
+                    <Route exact path='/details' render={({ location }) =>
                         <ShopDetailsPage
                             location={location}
                             variants={this.state.variants}
                             handlePurchase={this.handlePurchase}
                         />
                     } />
-                    <Route exact path='/order-confirmed' render={({location}) =>
+                    <Route exact path='/order-confirmed' render={({ location }) =>
                         <OrderConfirmedPage
                             location={location}
                         />
@@ -188,54 +187,54 @@ class App extends Component {
 
                     <Route exact path='/inventory' render={() =>
                         userService.getUser() ?
-                        <InventoryPage
-                            products={this.state.products}
-                            variants={this.state.variants}
-                            handleUpdateInventory={this.handleUpdateInventory}
-                        />
-                        :
-                        <Redirect to='/login' />
+                            <InventoryPage
+                                products={this.state.products}
+                                variants={this.state.variants}
+                                handleUpdateInventory={this.handleUpdateInventory}
+                            />
+                            :
+                            <Redirect to='/login' />
                     } />
 
                     <Route exact path='/manageproducts' render={() =>
                         userService.getUser() ?
-                        <ManageProductsPage
-                            products={this.state.products}
-                            variants={this.state.variants}
-                            handleDeleteProduct={this.handleDeleteProduct}
-                        />
-                        :
-                        <Redirect to='/login' />
+                            <ManageProductsPage
+                                products={this.state.products}
+                                variants={this.state.variants}
+                                handleDeleteProduct={this.handleDeleteProduct}
+                            />
+                            :
+                            <Redirect to='/login' />
                     } />
                     <Route exact path='/addproduct' render={({ history }) =>
                         userService.getUser() ?
-                        <AddProductPage
-                            history={history}
-                            handleAddProduct={this.handleAddProduct}
-                        />
-                        :
-                        <Redirect to='/login' />
+                            <AddProductPage
+                                history={history}
+                                handleAddProduct={this.handleAddProduct}
+                            />
+                            :
+                            <Redirect to='/login' />
                     } />
                     <Route exact path='/addvariants' render={({ location }) =>
                         userService.getUser() ?
-                        <AddVariantPage
-                            variants={this.state.variants}
-                            product={this.state.newProduct}
-                            variants={this.state.variants}
-                            location={location}
-                            handleAddVariant={this.handleAddVariant}
-                        />
-                        :
-                        <Redirect to='/login' />
+                            <AddVariantPage
+                                variants={this.state.variants}
+                                product={this.state.newProduct}
+                                variants={this.state.variants}
+                                location={location}
+                                handleAddVariant={this.handleAddVariant}
+                            />
+                            :
+                            <Redirect to='/login' />
                     } />
                     <Route exact path='/editproduct' render={({ location }) =>
                         userService.getUser() ?
-                        <EditProductPage
-                            handleUpdateProduct={this.handleUpdateProduct}
-                            location={location}
-                        />
-                        :
-                        <Redirect to='/login' />
+                            <EditProductPage
+                                handleUpdateProduct={this.handleUpdateProduct}
+                                location={location}
+                            />
+                            :
+                            <Redirect to='/login' />
                     } />
                     <Route exact path='/signup' render={({ history }) =>
                         <SignupPage
