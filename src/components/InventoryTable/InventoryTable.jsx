@@ -5,8 +5,8 @@ function InventoryTable(props) {
 
     
     return (
-        <div>
-            <table className="table is-bordered is-fullwidth">
+        <div className="container is-fluid pt-6">
+            <table className="table is-bordered is-fullwidth is-hoverable ">
                 <thead>
                     <tr>
                         <th>Product</th>

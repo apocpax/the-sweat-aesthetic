@@ -1,0 +1,17 @@
+.AVF-subtitle {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 10px;
+    background-color: black;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AVF-div {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}

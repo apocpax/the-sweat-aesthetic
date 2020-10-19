@@ -1,0 +1,15 @@
+.AVP-subtitles {
+    background-color: black;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.AVP-variant{
+    width: 90%;
+    margin: 0 auto;
+}

@@ -6,37 +6,40 @@ function ProductCard(props) {
     return (
         <div className="PC-div box columns">
 
-            <div className="column is-half">
+            <div className="column is-two-fifths">
                 <img src={props.product.photo} className="PC-img" />
             </div>
 
-            <div className="column is-half PC-productinfo">
-                <h2 className="title is-6">{props.product.name}</h2>
-                <p><strong>Collection: </strong>{props.product.category}</p>
-                <p><strong>Price: </strong>${props.product.price}</p>
-                <p><strong>Variants: </strong>{props.productVariants.length}</p>
+            <div className="column is-three-fifths PC-productinfo">
+                <div>
+                    <h2 className="title is-6">{props.product.name}</h2>
+                    <p className="subtitle PC-desc">{props.product.description}</p>
+                    <p><strong>Collection: </strong>{props.product.category}</p>
+                    <p><strong>Price: </strong>${props.product.price}</p>
+                    <p><strong>Variants: </strong>{props.productVariants.length}</p>
+                </div>
 
 
 
                 <div className="columns PC-buttons">
                     <div className="column is-two-fifths">
-
-                        <button
-                            onClick={() => props.handleDeleteProduct(props.product._id)}
-                            className="button is-danger is-small is-fullwidth"
-                        >
-                            Delete Product
-                    </button>
-                    </div>
-                    <div className="column is-two-fifths">
                         <Link
-                            className="button is-info is-small is-fullwidth"
+                            className="button is-black is-small is-fullwidth"
                             to={{
                                 pathname: '/editproduct',
                                 state: { product: props.product }
                             }}
                         >Edit Product
                         </Link>
+                    </div>
+                    <div className="column is-two-fifths">
+
+                        <button
+                            onClick={() => props.handleDeleteProduct(props.product._id)}
+                            className="button is-outlined is-small is-fullwidth"
+                        >
+                            Delete Product
+                        </button>
                     </div>
                 </div>
 

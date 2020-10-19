@@ -15,7 +15,7 @@ class InventoryForm extends Component {
 
     handleChange = (e) => {
         const formData = {
-            ...this.state.formData, 
+            ...this.state.formData,
             [e.target.name]: e.target.value,
         }
         this.setState({
@@ -34,15 +34,22 @@ class InventoryForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit} autoComplete="off" ref={this.formRef}>
-                    <input
-                        type="number"
-                        min="0"
-                        name="inventory"
-                        value={this.state.formData.inventory}
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <button type="submit" disabled={this.state.invalidForm}>Update</button>
+                    <div className="field has-addons">
+                        <div className="control">
+                            <input
+                                className="input"
+                                type="number"
+                                min="0"
+                                name="inventory"
+                                value={this.state.formData.inventory}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="control">
+                            <button className="button" type="submit" disabled={this.state.invalidForm}>Update</button>
+                        </div>
+                    </div>
 
                 </form>
             </div>

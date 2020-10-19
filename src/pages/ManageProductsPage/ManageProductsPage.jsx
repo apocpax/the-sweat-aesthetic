@@ -6,7 +6,7 @@ import './ManageProductsPage.css'
 function ManageProductsPage(props) {
     return (
         <div className="MPP-div .html">
-            <Link to="/addproduct" className="button MPP-button is-success">ADD PRODUCT</Link>
+            <Link to="/addproduct" className="button MPP-button is-outlined">ADD PRODUCT</Link>
             {props.products.map(product => (
                 <ProductCard
                     product={product} key={product._id}
@@ -14,7 +14,7 @@ function ManageProductsPage(props) {
                     productVariants={props.variants.filter(variant => variant.product === product._id)}
                 />
             ))}
-            <Link to="/addproduct" className="button MPP-button is-success">ADD PRODUCT</Link>
+            <Link to="/addproduct" className="button MPP-button is-outlined mt-3">ADD PRODUCT</Link>
         </div>
     )
 }

@@ -72,9 +72,11 @@ class App extends Component {
         const newProductArray = this.state.products.map(p =>
             p._id === updatedProduct._id ? updatedProduct : p
         )
-        this.setState(
-            { products: newProductArray },
-            () => this.props.history.push('/manageproducts')
+        this.setState({ 
+            products: newProductArray,
+            newProduct: updatedProduct
+        },
+            () => this.props.history.push(`/addvariants/`)
         )
     }
 

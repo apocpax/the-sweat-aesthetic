@@ -22,61 +22,107 @@ class EditProductForm extends Component {
     render() {
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
-                <div>
-                        <label>Product Name</label>
-                        <input
-                            name="name"
-                            value={this.state.formData.name}
-                            onChange={this.handleChange}
-                            required
-                        />
+                <h1 className="APF-title">Edit Product</h1>
+                <form className="container is-fluid" onSubmit={this.handleSubmit} autoComplete="off" ref={this.formRef}>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Product Name</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <div className="control">
+                                    <input
+                                        className="input"
+                                        name="name"
+                                        value={this.state.formData.name}
+                                        onChange={this.handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Description</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <div className="control">
+                                    <textarea
+                                        className="textarea"
+                                        name="description"
+                                        value={this.state.formData.description}
+                                        onChange={this.handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Category</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <div className="control">
+                                    <select
+                                        className="select is-fullwidth"
+                                        name="category"
+                                        value={this.state.formData.category}
+                                        onChange={this.handleChange}
+                                        required
+                                    >
+                                        <option value="Men's Shorts">Men's Shorts</option>
+                                        <option value="Men's Tops">Men's Tops</option>
+                                        <option value="Women's Shorts">Women's Shorts</option>
+                                        <option value="Women's Tops">Women's Tops</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Price</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <div className="control">
+                                    <input
+                                        className="input"
+                                        type="number"
+                                        min="0"
+                                        name="price"
+                                        value={this.state.formData.price}
+                                        onChange={this.handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field is-horizontal">
+                        <div className="field-label is-normal">
+                            <label className="label">Photo Link</label>
+                        </div>
+                        <div className="field-body">
+                            <div className="field">
+                                <div className="control">
+                                    <input
+                                        className="input"
+                                        name="photo"
+                                        value={this.state.formData.photo}
+                                        onChange={this.handleChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <label>Description</label>
-                        <textarea
-                            name="description"
-                            value={this.state.formData.description}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label>Category</label>
-                        <select
-                            name="category"
-                            value={this.state.formData.category}
-                            onChange={this.handleChange}
-                            required
-                        >
-                            <option value="Men's Shorts">Men's Shorts</option>
-                            <option value="Men's Tops">Men's Tops</option>
-                            <option value="Women's Shorts">Women's Shorts</option>
-                            <option value="Women's Tops">Women's Tops</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Price</label>
-                        <input
-                            type="number"
-                            min="0"
-                            name="price"
-                            value={this.state.formData.price}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label>Photo Link</label>
-                        <input
-                            name="photo"
-                            value={this.state.formData.photo}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <button type="submit">Confirm Changes</button>
+                        <button className="button is-success" type="submit" disabled={this.state.invalidForm}>Next (Add Variants)</button>
                     </div>
                 </form>
             </>
