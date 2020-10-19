@@ -1,39 +1,32 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavBar.css'
 
 const NavBar = (props) => {
     let navstart = props.user ?
         <div className="navbar-start">
-            <NavLink exact to="/manageproducts" className="navbar-item">MANAGE PRODUCTS</NavLink>
-            <NavLink exact to="/inventory" className="navbar-item">MANAGE INVENTORY</NavLink>
-            <NavLink to='' onClick={props.handleLogout} className="navbar-item">LOG OUT</NavLink>
+            <NavLink exact to="/manageproducts" className="navbar-item is-size-4">MANAGE PRODUCTS</NavLink>
+            <NavLink exact to="/inventory" className="navbar-item is-size-4">MANAGE INVENTORY</NavLink>
         </div>
         :
         <div className="navbar-start">
-            <NavLink exact to="/collections">COLLECTIONS</NavLink>
-            <NavLink to='/login' className="navbar-item">LOG IN</NavLink>
-            <NavLink to='/signup' className="navbar-item">SIGN UP</NavLink>
+            <NavLink exact to="/collections" className="navbar-item is-size-4">COLLECTIONS</NavLink>
         </div>;
 
     let navend = props.user ?
-        <div className="navbar-start">
-            <NavLink exact to="/manageproducts" className="navbar-item">MANAGE PRODUCTS</NavLink>
-            <NavLink exact to="/inventory" className="navbar-item">MANAGE INVENTORY</NavLink>
-            <NavLink to='' onClick={props.handleLogout} className="navbar-item">LOG OUT</NavLink>
+        <div className="buttons is-centered">
+            <NavLink to='/' onClick={props.handleLogout} className="navbar-item button is-primary is-medium">LOG OUT</NavLink>
         </div>
         :
-        <div className="navbar-start">
-            <NavLink exact to="/collections">COLLECTIONS</NavLink>
-            <NavLink to='/login' className="navbar-item">LOG IN</NavLink>
-            <NavLink to='/signup' className="navbar-item">SIGN UP</NavLink>
+        <div className="buttons is-centered">
+            <NavLink to='/login' className="navbar-item button is-light is-medium">LOG IN</NavLink>
+            <NavLink to='/signup' className="navbar-item button is-primary is-medium">SIGN UP</NavLink>
         </div>;
 
     return (
-        <nav className="navbar App-nav" role="navigation" aria-label="main navigation">
-            <div className="navbar-brand Nav-brand">
+        <nav className="navbar is-black" role="navigation" aria-label="main navigation">
+            <div className="navbar-brand">
                 <NavLink to="/">
-                    <img className="pt-1" src="https://i.imgur.com/WnHARxG.jpg" width="112" height="10" />
+                    <img className="pt-1" src="https://i.imgur.com/Y4NvYmA.jpg" width="112" height="28" />
                 </NavLink>
 
                 <NavLink to="/" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -43,23 +36,11 @@ const NavBar = (props) => {
                 </NavLink>
             </div>
 
-            <div className="navbar-menu">
-            
-                    {/* <NavLink to="/" className="navbar-item">
-                        Home
-                    </NavLink> */}
-                    {navigation}
-
+            <div id="navbarBasicExample" className="navbar-menu">
+                    {navstart}
                 <div className="navbar-end">
                     <div className="navbar-item">
-                        <div className="buttons">
-                            <NavLink to="/" className="button is-primary">
-                                <strong>Sign up</strong>
-                            </NavLink>
-                            <NavLink to="/" className="button is-light">
-                                Log in
-                                    </NavLink>
-                        </div>
+                        {navend}
                     </div>
                 </div>
             </div>

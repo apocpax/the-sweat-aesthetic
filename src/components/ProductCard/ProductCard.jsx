@@ -12,11 +12,11 @@ function ProductCard(props) {
 
             <div className="column is-three-fifths PC-productinfo">
                 <div>
-                    <h2 className="title is-size-3">{props.product.name}</h2>
+                    <h2 className="title is-size-4">{props.product.name}</h2>
                     <p className="subtitle PC-desc">{props.product.description}</p>
-                    <p className="is-size-4"><strong>Collection: </strong>{props.product.category}</p>
-                    <p className="is-size-4"><strong>Price: </strong>${props.product.price}</p>
-                    <p className="is-size-4"><strong>Variants: </strong>{props.productVariants.length}</p>
+                    <p className="is-size-5"><strong>Collection: </strong>{props.product.category}</p>
+                    <p className="is-size-5"><strong>Price: </strong>${props.product.price}</p>
+                    <p className="is-size-5"><strong>Variants: </strong>{props.productVariants.length}</p>
                 </div>
 
 
